@@ -153,7 +153,7 @@ fun TampilForm(cobaViewModel: CobaViewModel = viewModel()){
     Button(
         modifier = Modifier.fillMaxWidth(),
         onClick = {
-            cobaViewModel.insertData(textNama, textTlp, dataForm.sex)
+            cobaViewModel.insertData(textNama, textTlp, dataForm.sex, dataForm.stat, textAlamat, textEmail)
         }
     ) {
         Text(
@@ -163,9 +163,11 @@ fun TampilForm(cobaViewModel: CobaViewModel = viewModel()){
     }
     Spacer(modifier = Modifier.height(90.dp))
     TextHasil(
-        namanya = cobaViewModel.namaUsr,
-        telponnya = cobaViewModel.noTlp,
-        jenisnya = cobaViewModel.jenisKl
+        statusnya = cobaViewModel.statusOrg,
+        emailnya = cobaViewModel.email,
+        jenisnya = cobaViewModel.jenisKl,
+        alamatnya = cobaViewModel.alamat,
+
     )
 }
 
@@ -238,7 +240,7 @@ fun SelectST(
 }
 
 @Composable
-fun TextHasil(namanya: String, telponnya: String, jenisnya: String){
+fun TextHasil(jenisnya: String, statusnya: String, alamatnya: String, emailnya: String){
     ElevatedCard(
         elevation = CardDefaults.cardElevation(
             defaultElevation = 6.dp
@@ -247,17 +249,22 @@ fun TextHasil(namanya: String, telponnya: String, jenisnya: String){
             .fillMaxWidth()
     ){
         Text(
-            text = "Nama : " + namanya,
-            modifier = Modifier
-                .padding(horizontal = 10.dp, vertical = 5.dp)
-        )
-        Text(
-            text = "Telepon : " + telponnya,
-            modifier = Modifier
-                .padding(horizontal = 10.dp, vertical = 5.dp)
-        )
-        Text(
             text = "Jenis Kelamin : " + jenisnya,
+            modifier = Modifier
+                .padding(horizontal = 10.dp, vertical = 5.dp)
+        )
+        Text(
+            text = "Status : " + statusnya,
+            modifier = Modifier
+                .padding(horizontal = 10.dp, vertical = 5.dp)
+        )
+        Text(
+            text = "Alamat : " + alamatnya,
+            modifier = Modifier
+                .padding(horizontal = 10.dp, vertical = 5.dp)
+        )
+        Text(
+            text = "Email : " + emailnya,
             modifier = Modifier
                 .padding(horizontal = 10.dp, vertical = 5.dp)
         )
