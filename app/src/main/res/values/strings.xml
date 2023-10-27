@@ -2,6 +2,5 @@
     <string name="app_name">ViewModel</string>
     <string name="laki">Laki-Laki</string>
     <string name="wanita">Perempuan</string>
-    <string name="unknown">Tidak Keduanya</string>
     <string name="submit">Submit</string>
 </resources>
